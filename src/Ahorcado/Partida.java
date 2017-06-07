@@ -4,8 +4,11 @@
 
 package Ahorcado;
 
+import java.util.Scanner;
+
 import Ahorcado.Horca;
 import Ahorcado.Palabra;
+import sun.applet.Main;
 
 /************************************************************/
 /**
@@ -25,6 +28,8 @@ public class Partida {
 	 * 
 	 */
 	public void mostrarProgreso() {
+		horca.dibujar();
+		palabra.mostrarResultados();
 	}
 
 	/**
@@ -32,18 +37,32 @@ public class Partida {
 	 * @return letra 
 	 */
 	public char pedirLetra() {
+		Scanner entrada= new Scanner(System.in);
+		System.out.println("Introdusca una letra : ");
+		char letra= entrada.nextLine().charAt(0);
+		return letra;
 	}
 
 	/**
+	 * @return 
 	 * 
 	 */
-	public void resolver() {
+	public boolean resolver() {
+		Scanner entrada= new Scanner(System.in);
+		System.out.println("Introduce respuesta ");
+		return palabra.comprobarPalabra(entrada.nextLine());
 	}
+	
 
 	/**
-	 * 
-	 * @return fin 
+	 * Compreuba tanto si hemos agotado los fallos como si hemos acertado
+	 * todas las teclas.
+	 * @return true si Hemos ganado o perdido, false  si todavia jugamos
 	 */
 	public boolean comprobarFinal() {
+		return horca.comprobarSiPerdido() || palabra.comprobarSiGanado();
+	}
+	public static void main(String[] args) {
+		
 	}
 };
