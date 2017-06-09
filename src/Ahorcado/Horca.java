@@ -13,7 +13,7 @@ public class Horca {
 	/**
 	 * es el número de fallos que lleva el usuario, vamos a permitir 6 fallos
 	 */
-	private int fallos;
+	private static int fallos;
 
 	/**
 	 * 
@@ -39,7 +39,7 @@ public class Horca {
 	/**
 	 * incrementa el contador de fallos
 	 */
-	public void incrementarFallo() {
+	public static void incrementarFallo() {
 		fallos++;
 	}
 
